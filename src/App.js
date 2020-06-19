@@ -11,7 +11,7 @@ class App extends React.Component {
       <div className='wrapper'>
         <Row noGutters={true}>
           <Problem 
-            title={"Finally Home"}
+            title={"finally_home.py"}
             description={"You've been away all day long, and now you're finally home to see bear!"}
             challenge={"Write a program that outputs: Hello, Bear!"}
             input1={"None"}

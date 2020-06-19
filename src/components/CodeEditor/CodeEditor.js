@@ -7,12 +7,9 @@ import TerminalEmulator from '../TerminalEmulator/TerminalEmulator'
 import { Col } from 'react-bootstrap'
 import { connect } from 'react-redux'
 import './CodeEditor.scss'
+import { updateCode } from '../../actions/CodeActions'
 
 class CodeEditor extends React.Component {
-  onChange(newValue) {
-    console.log(newValue);
-  }
-
   render() {
     return(
       <Col lg={this.props.codeEditorWidth} className='CodeEditor'>
@@ -24,12 +21,12 @@ class CodeEditor extends React.Component {
           width={'auto'}
           height={this.props.codeEditorHeight}
           onLoad={this.onLoad}
-          onChange={(value) => this.onChange(value)}
+          onChange={(code) => this.props.updateCode(code)}
           fontSize={22}
           showPrintMargin={true}
           showGutter={true}
           highlightActiveLine={true}
-          value={`def solution():\n\tpass`}
+          value={this.props.code}
           setOptions={{
           enableBasicAutocompletion: true,
           enableLiveAutocompletion: true,
@@ -49,7 +46,14 @@ class CodeEditor extends React.Component {
 
 const mapStateToProps = state => {
   const { codeEditorWidth, codeEditorHeight } = state.screenLayout
-  return { codeEditorWidth, codeEditorHeight }
+  const { code } = state.codeState
+  return { codeEditorWidth, codeEditorHeight, code }
 }
 
-export default connect(mapStateToProps)(CodeEditor)
+const mapDispatchToProps = dispatch => {
+  return {
+    updateCode: (code) => dispatch(updateCode(code))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CodeEditor)

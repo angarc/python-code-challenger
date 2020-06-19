@@ -1,8 +1,10 @@
-import screenLayoutReducer from './ScreenLayoutReducer.js'
+import screenLayoutReducer from './ScreenLayoutReducer'
+import codeReducer from './CodeReducer'
 import { combineReducers } from 'redux'
 
 const rootReducer = combineReducers({
-  screenLayout: screenLayoutReducer
+  screenLayout: screenLayoutReducer,
+  codeState: codeReducer
 })
 
 export default rootReducer
