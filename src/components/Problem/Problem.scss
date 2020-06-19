@@ -1,11 +1,23 @@
+.problemContainer {
+  height: 100%;
+}
+
 .problem {
-  overflow-y: scroll;
+  overflow-y: scroll !important;
+  background-color: #f9f9f9;
+  height: 100vh;
+  position: relative;
   padding: 20px;
 
   .bold {
     font-weight: 700;
   }
 
+  .hideButton {
+    position: absolute;
+    top: 0px;
+    right: 10px;
+  }
 }
 
 code {
@@ -16,7 +28,4 @@ code {
 
 .hidden {
   display: none;
-}
-
-.expanded {
 }

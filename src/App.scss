@@ -1,6 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap'); 
 @import '~@fortawesome/fontawesome-free/css/all.min.css';
 
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
 body {
   font-family: 'Rubik', sans-serif;
 }

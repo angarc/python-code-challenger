@@ -2,7 +2,7 @@ import React from 'react'
 import './Problem.scss'
 import { connect } from 'react-redux'
 import { closeProblem } from '../../actions/ScreenLayoutActions'
-import { Col } from 'react-bootstrap'
+import { Col, Button } from 'react-bootstrap'
 
 class Problem extends React.Component {
 
@@ -10,25 +10,11 @@ class Problem extends React.Component {
     this.props.closeProblem()  
   }
 
-  expandButtonClicked() {
-    this.props.expandProblem()
-  }
-
-  displayExpandButton() {
-    let buttonJsx = null 
-
-    if (this.props.problemClass == 'hidden') {
-      buttonJsx = <div><button onClick={() => this.expandButtonClicked()}>Expand</button></div> 
-    }
-
-    return buttonJsx
-  }
-
   displayCloseButton() {
     let buttonJsx = null 
 
     if (this.props.problemClass == 'expanded') {
-      buttonJsx = <button onClick={() => this.closeButtonClicked()}>Close</button> 
+      buttonJsx = <Button variant='light' className='hideButton mt-3' onClick={() => this.closeButtonClicked()}>Hide Problem</Button>
     }
 
     return buttonJsx
@@ -36,8 +22,8 @@ class Problem extends React.Component {
 
   render() {
     return(
-      <Col lg={6} className={this.props.problemClass}>
-        <div className="problem">
+      <Col lg={6} className={this.props.problemClass + " problemContainer"}>
+        <div className='problem'>
           <h1 className='bold'>{this.props.title}</h1>
           <p>{this.props.description}</p>
 
@@ -45,13 +31,11 @@ class Problem extends React.Component {
           <p>{this.props.challenge}</p>
 
           <hr/>
-
           <h3 className='bold'>Test Cases</h3>
           <p>Input: </p>
           <code>{this.props.input1}</code>
           <p className='mt-3'>Output: </p>
           <code>{this.props.output1}</code><br/>
-
           {this.displayCloseButton()} 
         </div>
       </Col>

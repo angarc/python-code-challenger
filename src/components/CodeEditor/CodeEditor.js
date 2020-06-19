@@ -6,31 +6,15 @@ import ActionBox from '../ActionsBox/ActionsBox'
 import { Col } from 'react-bootstrap'
 import { connect } from 'react-redux'
 import './CodeEditor.scss'
-import { expandProblem } from '../../actions/ScreenLayoutActions'
 
 class CodeEditor extends React.Component {
   onChange(newValue) {
     console.log(newValue);
   }
 
-  displayMinimizeButton() {
-    let buttonJsx = null
-    console.log(this.props.codeEditorWidth)
-    if (this.props.codeEditorWidth == 12) {
-      buttonJsx = <button onClick={() => this.minimizeButtonClicked()} className='expandButton'><i className='fa fa-times'></i></button> 
-    }
-
-    return buttonJsx
-  }
-
-  minimizeButtonClicked() {
-    this.props.expandProblem()
-  }
-
   render() {
     return(
       <Col lg={this.props.codeEditorWidth} className='CodeEditor'>
-        {this.displayMinimizeButton()}
         <AceEditor
           placeholder="Placeholder Text"
           mode="python"
@@ -60,15 +44,9 @@ class CodeEditor extends React.Component {
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return { 
-    expandProblem: () => dispatch(expandProblem())
-  }
-}
-
 const mapStateToProps = state => {
   const codeEditorWidth = state.screenLayout.codeEditorWidth
   return { codeEditorWidth }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CodeEditor)
+export default connect(mapStateToProps)(CodeEditor)
