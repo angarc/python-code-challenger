@@ -2,17 +2,36 @@ import React from 'react'
 import './ActionBox.scss'
 import { Button } from 'react-bootstrap'
 import { connect } from 'react-redux'
-import { expandProblem } from '../../actions/ScreenLayoutActions'
+import { expandProblem, showTerminal, hideTerminal } from '../../actions/ScreenLayoutActions'
 
 class ActionBox extends React.Component {
 
   displayExpandProblemButton() {
     let buttonJsx = null
     if (this.props.problemClass == 'hidden') {
-      buttonJsx = <Button variant="light" onClick={() => this.expandProblemButtonClicked()}>Show Problem</Button>
+      buttonJsx = <Button variant="light" className="mr-1" onClick={() => this.expandProblemButtonClicked()}>Show Problem</Button>
     }
 
     return buttonJsx
+  }
+
+  displayTerminalButton() {
+    let buttonJsx = null
+    if (this.props.terminalClass == 'terminal-hidden') {
+      buttonJsx = <Button onClick={() => this.showTerminalButtonClicked()} variant="light">Show Terminal</Button> 
+    } else {
+      buttonJsx = <Button onClick={() => this.hideTerminalButtonClicked()} variant="light">Hide Terminal</Button>
+    }
+
+    return buttonJsx;
+  }
+
+  showTerminalButtonClicked() {
+    this.props.showTerminal()
+  }
+
+  hideTerminalButtonClicked() {
+    this.props.hideTerminal()
   }
 
   expandProblemButtonClicked() {
@@ -22,10 +41,11 @@ class ActionBox extends React.Component {
   render() {
     return (
       <div className='ActionBox'>
-        <div class='left-buttons'>
+        <div className='left-buttons'>
           {this.displayExpandProblemButton()}
+          {this.displayTerminalButton()}
         </div>
-        <div class='right-buttons'>
+        <div className='right-buttons'>
           <Button variant="light" className='mr-1'>Run Test Cases</Button>
           <Button variant="success">Submit</Button>
         </div>
@@ -36,12 +56,15 @@ class ActionBox extends React.Component {
 
 const mapStateToProps = state => {
   const problemClass = state.screenLayout.problemClass
-  return { problemClass }
+  const terminalClass = state.screenLayout.terminalClass
+  return { problemClass, terminalClass }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    expandProblem: () => dispatch(expandProblem())
+    expandProblem: () => dispatch(expandProblem()),
+    showTerminal: () => dispatch(showTerminal()),
+    hideTerminal: () => dispatch(hideTerminal())
   }
 }
 

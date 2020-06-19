@@ -3,6 +3,7 @@ import AceEditor from "react-ace"
 import "ace-builds/src-noconflict/mode-python"
 import "ace-builds/src-noconflict/theme-twilight"
 import ActionBox from '../ActionsBox/ActionsBox'
+import TerminalEmulator from '../TerminalEmulator/TerminalEmulator'
 import { Col } from 'react-bootstrap'
 import { connect } from 'react-redux'
 import './CodeEditor.scss'
@@ -16,12 +17,12 @@ class CodeEditor extends React.Component {
     return(
       <Col lg={this.props.codeEditorWidth} className='CodeEditor'>
         <AceEditor
-          placeholder="Placeholder Text"
+          placeholder="Python 3.8"
           mode="python"
           theme="twilight"
           name="code-editor"
           width={'auto'}
-          height={'90vh'}
+          height={this.props.codeEditorHeight}
           onLoad={this.onLoad}
           onChange={(value) => this.onChange(value)}
           fontSize={22}
@@ -38,6 +39,8 @@ class CodeEditor extends React.Component {
           }}
         />
 
+        <TerminalEmulator />        
+
         <ActionBox/> 
       </Col>
     )
@@ -45,8 +48,8 @@ class CodeEditor extends React.Component {
 }
 
 const mapStateToProps = state => {
-  const codeEditorWidth = state.screenLayout.codeEditorWidth
-  return { codeEditorWidth }
+  const { codeEditorWidth, codeEditorHeight } = state.screenLayout
+  return { codeEditorWidth, codeEditorHeight }
 }
 
 export default connect(mapStateToProps)(CodeEditor)

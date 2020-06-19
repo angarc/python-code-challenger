@@ -17,3 +17,24 @@ export const expandProblem = () => {
     }
   }
 }
+
+
+export const showTerminal = () => {
+  return {
+    type: 'SHOW_TERMINAL',
+    payload: {
+      terminalClass: 'terminal',
+      codeEditorHeight: '50vh'
+    }
+  }
+}
+
+export const hideTerminal = () => {
+  return {
+    type: 'HIDE_TERMINAL',
+    payload: {
+      terminalClass: 'terminal-hidden',
+      codeEditorHeight: '90vh'
+    }
+  }
+}
