@@ -1,7 +1,7 @@
 import React from 'react'
 import './Problem.scss'
 import { connect } from 'react-redux'
-import { closeProblem, expandProblem } from '../../actions/ScreenLayoutActions'
+import { closeProblem } from '../../actions/ScreenLayoutActions'
 import { Col } from 'react-bootstrap'
 
 class Problem extends React.Component {
@@ -14,13 +14,21 @@ class Problem extends React.Component {
     this.props.expandProblem()
   }
 
-  displaySizeButton() {
+  displayExpandButton() {
     let buttonJsx = null 
 
-    if (this.props.problemWidth == 6) {
+    if (this.props.problemClass == 'hidden') {
+      buttonJsx = <div><button onClick={() => this.expandButtonClicked()}>Expand</button></div> 
+    }
+
+    return buttonJsx
+  }
+
+  displayCloseButton() {
+    let buttonJsx = null 
+
+    if (this.props.problemClass == 'expanded') {
       buttonJsx = <button onClick={() => this.closeButtonClicked()}>Close</button> 
-    } else if (this.props.problemWidth == 1) {
-      buttonJsx = <button onClick={() => this.expandButtonClicked()}>Expand</button>
     }
 
     return buttonJsx
@@ -28,8 +36,8 @@ class Problem extends React.Component {
 
   render() {
     return(
-      <Col lg={this.props.problemWidth}>
-        <div className='Problem'>
+      <Col lg={6} className={this.props.problemClass}>
+        <div className="problem">
           <h1 className='bold'>{this.props.title}</h1>
           <p>{this.props.description}</p>
 
@@ -44,7 +52,7 @@ class Problem extends React.Component {
           <p className='mt-3'>Output: </p>
           <code>{this.props.output1}</code><br/>
 
-          {this.displaySizeButton()} 
+          {this.displayCloseButton()} 
         </div>
       </Col>
     )
@@ -52,14 +60,13 @@ class Problem extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  const problemWidth = state.screenLayout.problemWidth
-  return { problemWidth }
+  const problemClass = state.screenLayout.problemClass
+  return { problemClass }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
     closeProblem: () => dispatch(closeProblem()),
-    expandProblem: () => dispatch(expandProblem())
   }
 }
 

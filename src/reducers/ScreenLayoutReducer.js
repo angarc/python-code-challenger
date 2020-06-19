@@ -1,5 +1,5 @@
 const defaultState = {
-  problemWidth: 6,
+  problemClass: 'expanded',
   codeEditorWidth: 6
 }
 
@@ -8,13 +8,13 @@ export default function screenLayoutReducer(state = defaultState, action) {
     case 'CLOSE_PROBLEM':
       return {
         ...state,
-        problemWidth: action.payload.problemWidth,
+        problemClass: action.payload.problemClass,
         codeEditorWidth: action.payload.codeEditorWidth 
       }
     case 'EXPAND_PROBLEM':
       return {
         ...state,
-        problemWidth: action.payload.problemWidth,
+        problemClass: action.payload.problemClass,
         codeEditorWidth: action.payload.codeEditorWidth 
       }
     default:

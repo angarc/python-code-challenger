@@ -2,8 +2,8 @@ export const closeProblem = () => {
   return {
     type: 'CLOSE_PROBLEM',
     payload: {
-      problemWidth: 1,
-      codeEditorWidth: 11
+      problemClass: 'hidden',
+      codeEditorWidth: 12
     }
   }
 }
@@ -12,7 +12,7 @@ export const expandProblem = () => {
   return {
     type: 'EXPAND_PROBLEM',
     payload: {
-      problemWidth: 6,
+      problemClass: 'expanded',
       codeEditorWidth: 6
     }
   }

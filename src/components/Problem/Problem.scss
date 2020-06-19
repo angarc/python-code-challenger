@@ -1,14 +1,22 @@
-.Problem {
+.problem {
   overflow-y: scroll;
   padding: 20px;
 
   .bold {
     font-weight: 700;
   }
+
 }
 
 code {
   background-color: #eee;
   color: black;
   padding: 1px 3px;
+}
+
+.hidden {
+  display: none;
+}
+
+.expanded {
 }
