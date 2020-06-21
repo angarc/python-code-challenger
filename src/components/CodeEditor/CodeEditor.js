@@ -10,6 +10,11 @@ import './CodeEditor.scss'
 import { updateCode } from '../../actions/CodeActions'
 
 class CodeEditor extends React.Component {
+
+  componentDidMount() {
+    this.props.updateCode("def solution():\n\tpass")
+  }
+
   render() {
     return(
       <Col lg={this.props.codeEditorWidth} className='CodeEditor'>

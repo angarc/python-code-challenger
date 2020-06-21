@@ -1,8 +1,8 @@
 const defaultState = {
   problemClass: 'expanded',
-  terminalClass: 'terminal-hidden',
+  terminalClass: 'terminal',
   codeEditorWidth: 6,
-  codeEditorHeight: '90vh'
+  codeEditorHeight: '50vh'
 }
 
 export default function screenLayoutReducer(state = defaultState, action) {
