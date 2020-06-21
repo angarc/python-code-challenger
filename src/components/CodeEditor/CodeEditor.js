@@ -12,7 +12,7 @@ import { updateCode } from '../../actions/CodeActions'
 class CodeEditor extends React.Component {
 
   componentDidMount() {
-    this.props.updateCode("def solution():\n\tpass")
+    this.props.updateCode("def solution():\n    pass")
   }
 
   render() {
@@ -33,11 +33,9 @@ class CodeEditor extends React.Component {
           highlightActiveLine={true}
           value={this.props.code}
           setOptions={{
-          enableBasicAutocompletion: true,
-          enableLiveAutocompletion: true,
-          enableSnippets: true,
-          showLineNumbers: true,
-          tabSize: 2,
+            showLineNumbers: true,
+            tabSize: 4,
+            insertSpaces: true
           }}
         />
 
