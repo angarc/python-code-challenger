@@ -10,13 +10,7 @@ class App extends React.Component {
     return (
       <div className='wrapper'>
         <Row noGutters={true}>
-          <Problem 
-            title={"finally_home.py"}
-            description={"You've been away all day long, and now you're finally home to see bear!"}
-            challenge={"Write a program that outputs: Hello, Bear!"}
-            input1={"None"}
-            output1={"Hello, Bear!"}
-          /> 
+          <Problem/> 
           <CodeEditor/>
         </Row>
       </div>
