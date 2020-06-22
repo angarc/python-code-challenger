@@ -1,6 +1,5 @@
 import React from 'react'
 import './Problem.scss'
-import { connect } from 'react-redux'
 import { closeProblem } from '../../actions/ScreenLayoutActions'
 import { updateProblem } from '../../actions/ProblemActions'
 import { Col, Button } from 'react-bootstrap'
@@ -9,9 +8,6 @@ const ReactMarkdown = require('react-markdown')
 
 class Problem extends React.Component {
   componentDidMount() {
-    axios.get('http://localhost:8000/api/problem/1').then((response) => {
-      this.props.updateProblem(response.data)
-    })
   }
 
   closeButtonClicked() {
@@ -29,7 +25,6 @@ class Problem extends React.Component {
   }
 
   render() {
-    console.log(this.props.problem.title)
     return(
       <Col lg={6} className={this.props.problemClass + " problemContainer"}>
         <div className='problem'>
@@ -65,4 +60,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Problem);
+export default Problem;

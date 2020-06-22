@@ -9,6 +9,7 @@ const defaultState = {
 const problemReducer = (state = defaultState, action) => {
   switch (action.type) {
     case 'UPDATE_PROBLEM':
+      console.log("updating problem")
       return {
         ...state,
         title: action.payload.problem.title,

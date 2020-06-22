@@ -5,9 +5,9 @@ import "ace-builds/src-noconflict/theme-twilight"
 import ActionBox from '../ActionsBox/ActionsBox'
 import TerminalEmulator from '../TerminalEmulator/TerminalEmulator'
 import { Col } from 'react-bootstrap'
-import { connect } from 'react-redux'
 import './CodeEditor.scss'
 import { updateCode } from '../../actions/CodeActions'
+import { connect } from 'react-redux'
 
 class CodeEditor extends React.Component {
 
