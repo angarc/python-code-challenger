@@ -10,11 +10,6 @@ import { updateCode } from '../../actions/CodeActions'
 import { connect } from 'react-redux'
 
 class CodeEditor extends React.Component {
-
-  componentDidMount() {
-    this.props.updateCode("def solution():\n    pass")
-  }
-
   render() {
     return(
       <Col lg={this.props.codeEditorWidth} className='CodeEditor'>
