@@ -18,6 +18,10 @@ class TerminalEmulator extends React.Component {
           return "Sorry, we don't support running python directly in the browser.\n" +
             "At any given point, you can only run the script of the file you're working on."
         }
+
+        if (arg1 !== this.props.problemTitle) {
+          return `File "${arg1}" non found.\n`
+        }
         // send api request
         const code = this.props.code
         const problemId = this.props.problemId
@@ -53,8 +57,9 @@ class TerminalEmulator extends React.Component {
 const mapStateToProps = state => {
   const terminalClass = state.screenLayout.terminalClass
   const problemId = state.problem.id
+  const problemTitle = state.problem.title
   const code = state.codeState.code
-  return { terminalClass, code, problemId } 
+  return { terminalClass, code, problemId, problemTitle } 
 }
 
 export default connect(mapStateToProps)(TerminalEmulator)
