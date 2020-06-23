@@ -3,9 +3,9 @@ import './ActionBox.scss'
 import { Button } from 'react-bootstrap'
 import { connect } from 'react-redux'
 import { expandProblem, showTerminal, hideTerminal } from '../../actions/ScreenLayoutActions'
+import axios from 'axios'
 
 class ActionBox extends React.Component {
-
   displayExpandProblemButton() {
     let buttonJsx = null
     if (this.props.problemClass == 'hidden') {
@@ -38,6 +38,26 @@ class ActionBox extends React.Component {
     this.props.expandProblem()
   }
 
+  submitButtonClicked() {
+    const code = this.props.code
+    const problemId = this.props.problemId
+    axios({
+      method: 'get',
+      url: `http://localhost:8000/api/submit/${problemId}`,
+      params: {
+        code
+      }
+    }).then((response) => {
+      if (response.data.did_pass_tests) {
+        alert("You got it!")
+      } else {
+        alert("Wrong!")
+      }
+    }).catch((error) => {
+      console.log(error)
+    }); 
+  }
+
   render() {
     return (
       <div className='ActionBox'>
@@ -47,7 +67,7 @@ class ActionBox extends React.Component {
         </div>
         <div className='right-buttons'>
           <Button variant="light" className='mr-1'>Run Test Cases</Button>
-          <Button variant="success">Submit</Button>
+          <Button variant="success" onClick={() => this.submitButtonClicked()}>Submit</Button>
         </div>
       </div>
     )
@@ -57,7 +77,9 @@ class ActionBox extends React.Component {
 const mapStateToProps = state => {
   const problemClass = state.screenLayout.problemClass
   const terminalClass = state.screenLayout.terminalClass
-  return { problemClass, terminalClass }
+  const problemId = state.problem.id
+  const code = state.codeState.code
+  return { problemClass, terminalClass, code, problemId }
 }
 
 const mapDispatchToProps = dispatch => {
