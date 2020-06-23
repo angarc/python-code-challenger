@@ -51,7 +51,8 @@ class ActionBox extends React.Component {
       if (response.data.did_pass_tests) {
         alert("You got it!")
       } else {
-        alert("Wrong!")
+        console.log(response.data)
+        alert(`Wrong!\nExpected Output: ${response.data.expected_output}\nActual Output: ${response.data.actual_output}`)
       }
     }).catch((error) => {
       console.log(error)

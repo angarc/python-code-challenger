@@ -1,5 +1,6 @@
 const defaultState = {
   id: -1,
+  num_inputs: -1,
   title: '',
   description: '',
   challenge: '',

@@ -20,9 +20,10 @@ class TerminalEmulator extends React.Component {
         }
         // send api request
         const code = this.props.code
+        const problemId = this.props.problemId
         axios({
           method: 'get',
-          url: 'http://localhost:8000/api/run',
+          url: `http://localhost:8000/api/run/${problemId}`,
           params: {
             code
           }
@@ -51,8 +52,9 @@ class TerminalEmulator extends React.Component {
 
 const mapStateToProps = state => {
   const terminalClass = state.screenLayout.terminalClass
+  const problemId = state.problem.id
   const code = state.codeState.code
-  return { terminalClass, code } 
+  return { terminalClass, code, problemId } 
 }
 
 export default connect(mapStateToProps)(TerminalEmulator)
