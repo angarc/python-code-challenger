@@ -1,6 +1,7 @@
 import React from 'react'
 import Problem from '../components/Problem/Problem'
 import CodeEditor from '../components/CodeEditor/CodeEditor'
+import UnobtrusiveNavbar from '../containers/UnobtrusiveNavbar/UnobtrusiveNavbar'
 import { Row } from 'react-bootstrap'
 import { updateProblem } from '../actions/ProblemActions'
 import { updateCode } from '../actions/CodeActions'
@@ -19,6 +20,7 @@ class CodeEnvironment extends React.Component {
   render() {
     return(
       <div className='wrapper'>
+        <UnobtrusiveNavbar/> 
         <Row noGutters={true}>
           <Problem
             problemClass=''

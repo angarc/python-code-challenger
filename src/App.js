@@ -17,9 +17,9 @@ class App extends React.Component {
     return (
       <Router>
         <div>
-          <NavBar/>
           <Switch>
             <Route exact={true} path="/">
+              <NavBar/>
               <ProblemList/>
             </Route>
             <Route path="/problem/:id" component={CodeEnvironment} />

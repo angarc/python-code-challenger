@@ -1,0 +1,41 @@
+.UnobtrusiveNavbar {
+  position: absolute;
+  z-index: 3;
+  top: 10px;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 100%;
+  background-color: white; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #333;
+    width: 100vw;
+    height: 100vh; 
+
+    &-link {
+      transition: .3s;
+      color: white;
+      text-decoration: none;
+      font-size: 30px;
+      padding: 10px 30px;
+      border-radius: 15px;
+      margin-top: 20px;
+      
+      &:hover {
+        text-decoration: none;
+        background-color: white;
+        color: black;
+      }
+    }
+  }
+}
