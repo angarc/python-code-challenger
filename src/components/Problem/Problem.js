@@ -1,15 +1,11 @@
 import React from 'react'
 import './Problem.scss'
-import { closeProblem } from '../../actions/ScreenLayoutActions'
-import { updateProblem } from '../../actions/ProblemActions'
+import { updateProblem } from './../../actions/ProblemActions'
 import { Col, Button } from 'react-bootstrap'
 import axios from 'axios'
 const ReactMarkdown = require('react-markdown')
 
 class Problem extends React.Component {
-  componentDidMount() {
-  }
-
   closeButtonClicked() {
     this.props.closeProblem()  
   }
@@ -43,20 +39,6 @@ class Problem extends React.Component {
         </div>
       </Col>
     )
-  }
-}
-
-const mapStateToProps = (state, ownProps) => {
-  const problemClass = state.screenLayout.problemClass
-
-  const problem = state.problem
-  return { problemClass, problem }
-}
-
-const mapDispatchToProps = dispatch => {
-  return {
-    closeProblem: () => dispatch(closeProblem()),
-    updateProblem: (problem) => dispatch(updateProblem(problem))
   }
 }
 

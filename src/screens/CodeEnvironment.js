@@ -5,6 +5,7 @@ import UnobtrusiveNavbar from '../containers/UnobtrusiveNavbar/UnobtrusiveNavbar
 import { Row } from 'react-bootstrap'
 import { updateProblem } from '../actions/ProblemActions'
 import { updateCode } from '../actions/CodeActions'
+import { closeProblem } from '../actions/ScreenLayoutActions'
 import { connect } from 'react-redux'
 import axios from 'axios'
 
@@ -23,8 +24,9 @@ class CodeEnvironment extends React.Component {
         <UnobtrusiveNavbar/> 
         <Row noGutters={true}>
           <Problem
-            problemClass=''
-            problem={this.props.problem}            
+            problemClass={this.props.problemClass}
+            problem={this.props.problem}
+            closeProblem={this.props.closeProblem}
           /> 
           <CodeEditor/>
         </Row>
@@ -34,13 +36,17 @@ class CodeEnvironment extends React.Component {
 }
 
 const mapStateToProps = state => {
-  return { problem: state.problem }
+  const problem = state.problem
+  const problemClass = state.screenLayout.problemClass
+
+  return { problem, problemClass }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
     updateProblem: (problem) => dispatch(updateProblem(problem)),
-    updateCode: (code) => dispatch(updateCode(code))
+    updateCode: (code) => dispatch(updateCode(code)),
+    closeProblem: () => dispatch(closeProblem())
   }
 }
 
