@@ -3,6 +3,7 @@ import './Problem.scss'
 import { updateProblem } from './../../actions/ProblemActions'
 import { Col, Button } from 'react-bootstrap'
 import axios from 'axios'
+import { Modal } from 'react-bootstrap'
 const ReactMarkdown = require('react-markdown')
 
 class Problem extends React.Component {

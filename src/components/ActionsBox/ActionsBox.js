@@ -3,6 +3,7 @@ import './ActionBox.scss'
 import { Button } from 'react-bootstrap'
 import { connect } from 'react-redux'
 import { expandProblem, showTerminal, hideTerminal } from '../../actions/ScreenLayoutActions'
+import { showModal } from '../../actions/ResponseActions'
 import axios from 'axios'
 
 class ActionBox extends React.Component {
@@ -41,6 +42,7 @@ class ActionBox extends React.Component {
   submitButtonClicked() {
     const code = this.props.code
     const problemId = this.props.problemId
+    let that = this
     axios({
       method: 'get',
       url: `http://localhost:8000/api/submit/${problemId}`,
@@ -49,10 +51,10 @@ class ActionBox extends React.Component {
       }
     }).then((response) => {
       if (response.data.did_pass_tests) {
-        alert("You got it!")
+        that.props.showModal("Nice you got it! You can move on to the next problem!")
       } else {
         console.log(response.data)
-        alert(`Wrong!\nExpected Output: ${response.data.expected_output}\nActual Output: ${response.data.actual_output}`)
+        that.props.showModal(`<strong>Wrong!</strong><br><strong>Expected Output:</strong> ${response.data.expected_output}<br><strong>Actual Output</strong>: ${response.data.actual_output}`)
       }
     }).catch((error) => {
       console.log(error)
@@ -67,8 +69,7 @@ class ActionBox extends React.Component {
           {this.displayTerminalButton()}
         </div>
         <div className='right-buttons'>
-          <Button variant="light" className='mr-1'>Run Test Cases</Button>
-          <Button variant="success" onClick={() => this.submitButtonClicked()}>Submit</Button>
+          <Button variant="success" onClick={() => this.submitButtonClicked()}>Run Test Cases</Button>
         </div>
       </div>
     )
@@ -87,7 +88,8 @@ const mapDispatchToProps = dispatch => {
   return {
     expandProblem: () => dispatch(expandProblem()),
     showTerminal: () => dispatch(showTerminal()),
-    hideTerminal: () => dispatch(hideTerminal())
+    hideTerminal: () => dispatch(hideTerminal()),
+    showModal: (content) => dispatch(showModal(content))
   }
 }
 

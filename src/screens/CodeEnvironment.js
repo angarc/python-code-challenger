@@ -2,10 +2,12 @@ import React from 'react'
 import Problem from '../components/Problem/Problem'
 import CodeEditor from '../components/CodeEditor/CodeEditor'
 import UnobtrusiveNavbar from '../containers/UnobtrusiveNavbar/UnobtrusiveNavbar'
-import { Row } from 'react-bootstrap'
+import { Row, Modal, Button } from 'react-bootstrap'
 import { updateProblem } from '../actions/ProblemActions'
 import { updateCode } from '../actions/CodeActions'
 import { closeProblem } from '../actions/ScreenLayoutActions'
+import { closeModal } from '../actions/ResponseActions'
+import { Link } from "react-router-dom";
 import { connect } from 'react-redux'
 import axios from 'axios'
 
@@ -21,6 +23,7 @@ class CodeEnvironment extends React.Component {
   render() {
     return(
       <div className='wrapper'>
+        <MyVerticallyCenteredModal onHide={this.props.closeModal} content={this.props.modal.modalContent} show={this.props.modal.showModal} />
         <UnobtrusiveNavbar/> 
         <Row noGutters={true}>
           <Problem
@@ -35,18 +38,45 @@ class CodeEnvironment extends React.Component {
   }
 }
 
+function MyVerticallyCenteredModal(props) {
+  return (
+    <Modal
+      {...props}
+      aria-labelledby="contained-modal-title-vcenter"
+      centered
+    >
+      <Modal.Header closeButton>
+        <Modal.Title id="contained-modal-title-vcenter">
+          Test Results 
+        </Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <p>
+          <div dangerouslySetInnerHTML={{ __html: props.content }} />
+        </p>
+      </Modal.Body>
+      <Modal.Footer>
+        { props.content == "Nice you got it! You can move on to the next problem!" 
+        ? <Link to="/" className="btn btn-success">Back To Problems</Link> 
+        : <Button onClick={props.onHide}>Close</Button> }
+      </Modal.Footer>
+    </Modal>
+  );
+}
+
 const mapStateToProps = state => {
   const problem = state.problem
   const problemClass = state.screenLayout.problemClass
-
-  return { problem, problemClass }
+  const modal = state.response
+  return { problem, problemClass, modal }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
     updateProblem: (problem) => dispatch(updateProblem(problem)),
     updateCode: (code) => dispatch(updateCode(code)),
-    closeProblem: () => dispatch(closeProblem())
+    closeProblem: () => dispatch(closeProblem()),
+    closeModal: () => dispatch(closeModal())
   }
 }
 
