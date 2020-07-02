@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import { expandProblem, showTerminal, hideTerminal } from '../../actions/ScreenLayoutActions'
 import { showModal } from '../../actions/ResponseActions'
 import axios from 'axios'
+import URI from '../../endpoints/endpoints'
 
 class ActionBox extends React.Component {
   displayExpandProblemButton() {
@@ -45,7 +46,7 @@ class ActionBox extends React.Component {
     let that = this
     axios({
       method: 'get',
-      url: `http://localhost:8000/api/submit/${problemId}`,
+      url: `${URI}api/submit/${problemId}`,
       params: {
         code
       }

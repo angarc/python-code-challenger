@@ -10,10 +10,11 @@ import { closeModal } from '../actions/ResponseActions'
 import { Link } from "react-router-dom";
 import { connect } from 'react-redux'
 import axios from 'axios'
+import URI from '../endpoints/endpoints'
 
 class CodeEnvironment extends React.Component {
   componentDidMount() {
-    axios.get(`http://localhost:8000/api/problem/${this.props.match.params.id}`).then((response) => {
+    axios.get(`${URI}api/problem/${this.props.match.params.id}`).then((response) => {
       this.props.updateProblem(response.data)
       this.props.updateCode(response.data.starting_code)
     })

@@ -3,6 +3,7 @@ import './TerminalEmulator.scss'
 import Terminal from 'react-console-emulator'
 import { connect } from 'react-redux'
 import axios from 'axios'
+import URI from '../../endpoints/endpoints'
 
 class TerminalEmulator extends React.Component {
   constructor (props) {
@@ -27,7 +28,7 @@ class TerminalEmulator extends React.Component {
         const problemId = this.props.problemId
         axios({
           method: 'get',
-          url: `http://localhost:8000/api/run/${problemId}`,
+          url: `${URI}api/run/${problemId}`,
           params: {
             code
           }

@@ -2,6 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import ProblemListing from '../../containers/ProblemListing/ProblemListing'
 import { Container, ListGroup } from 'react-bootstrap'
+import URI from '../../endpoints/endpoints'
 
 class ProblemList extends React.Component {
   state = {
@@ -9,7 +10,7 @@ class ProblemList extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:8000/api/problems').then(response => {
+    axios.get(`${URI}api/problems`).then(response => {
       this.setState({problemListings: response.data})
     })
   }
