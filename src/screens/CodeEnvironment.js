@@ -14,7 +14,6 @@ import axios from 'axios'
 class CodeEnvironment extends React.Component {
   componentDidMount() {
     axios.get(`http://localhost:8000/api/problem/${this.props.match.params.id}`).then((response) => {
-      console.log(response.data)
       this.props.updateProblem(response.data)
       this.props.updateCode(response.data.starting_code)
     })
