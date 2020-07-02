@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "a080c743cd485d25f561c96e7f2115b4",
+    "revision": "6f410521651464cd64939d702f76b10e",
     "url": "/python-code-challenger/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/python-code-challenger/static/css/2.d09ab2fc.chunk.css"
   },
   {
-    "revision": "b2e9dbdb8ee116d85563",
+    "revision": "0b63c260933ef5d1f556",
     "url": "/python-code-challenger/static/css/main.b47e0462.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/python-code-challenger/static/js/2.d4de690a.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "b2e9dbdb8ee116d85563",
-    "url": "/python-code-challenger/static/js/main.5a676152.chunk.js"
+    "revision": "0b63c260933ef5d1f556",
+    "url": "/python-code-challenger/static/js/main.0b8fad14.chunk.js"
   },
   {
     "revision": "a6f8dabd38c30306c95e",
