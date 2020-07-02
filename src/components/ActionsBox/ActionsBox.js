@@ -50,9 +50,10 @@ class ActionBox extends React.Component {
         code
       }
     }).then((response) => {
+      console.log(response.data)
       if (response.data.did_pass_tests) {
         that.props.showModal("Nice you got it! You can move on to the next problem!")
-      } else if (response.data.timeout_error !== null) {
+      } else if (response.data.timeout_error !== undefined) {
         that.props.showModal(`<strong>Wrong!</strong><br>Your code took too long! Make sure you're not going into an infinite loop or something like that.`)
       } else {        
         that.props.showModal(`<strong>Wrong!</strong><br><strong>Expected Output:</strong> ${response.data.expected_output}<br><strong>Actual Output</strong>: ${response.data.actual_output}`)
