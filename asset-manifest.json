@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/python-code-challenger/static/css/main.b47e0462.chunk.css",
-    "main.js": "/python-code-challenger/static/js/main.dc02a99c.chunk.js",
-    "main.js.map": "/python-code-challenger/static/js/main.dc02a99c.chunk.js.map",
+    "main.js": "/python-code-challenger/static/js/main.5a676152.chunk.js",
+    "main.js.map": "/python-code-challenger/static/js/main.5a676152.chunk.js.map",
     "runtime-main.js": "/python-code-challenger/static/js/runtime-main.8e297237.js",
     "runtime-main.js.map": "/python-code-challenger/static/js/runtime-main.8e297237.js.map",
     "static/css/2.d09ab2fc.chunk.css": "/python-code-challenger/static/css/2.d09ab2fc.chunk.css",
     "static/js/2.d4de690a.chunk.js": "/python-code-challenger/static/js/2.d4de690a.chunk.js",
     "static/js/2.d4de690a.chunk.js.map": "/python-code-challenger/static/js/2.d4de690a.chunk.js.map",
     "index.html": "/python-code-challenger/index.html",
-    "precache-manifest.93926eaf0659cac78cd97127be4b28e1.js": "/python-code-challenger/precache-manifest.93926eaf0659cac78cd97127be4b28e1.js",
+    "precache-manifest.ca2adcb3521a3db0ee05814e28ab7312.js": "/python-code-challenger/precache-manifest.ca2adcb3521a3db0ee05814e28ab7312.js",
     "service-worker.js": "/python-code-challenger/service-worker.js",
     "static/css/2.d09ab2fc.chunk.css.map": "/python-code-challenger/static/css/2.d09ab2fc.chunk.css.map",
     "static/css/main.b47e0462.chunk.css.map": "/python-code-challenger/static/css/main.b47e0462.chunk.css.map",
@@ -25,6 +25,6 @@
     "static/css/2.d09ab2fc.chunk.css",
     "static/js/2.d4de690a.chunk.js",
     "static/css/main.b47e0462.chunk.css",
-    "static/js/main.dc02a99c.chunk.js"
+    "static/js/main.5a676152.chunk.js"
   ]
 }
