@@ -9,6 +9,7 @@
 
 body {
   font-family: 'Rubik', sans-serif;
+  background-color:#0984e3;
 }
 
 .App {
@@ -19,4 +20,18 @@ body {
   height: 100vh;
   width: 100%;
   overflow-x: hidden;
+}
+
+.title {
+  font-family: 'Yellow Rabbit';
+  color: white;
+  margin: 50px 0;
+  font-weight: 700;
+  text-align: center;
+  font-size: 150px;
+}
+
+@font-face {
+  font-family: 'Yellow Rabbit';
+  src: local('Yellow Rabbit'), url('../src/static/yellow-rabbit.otf') format('opentype');
 }

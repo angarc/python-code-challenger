@@ -11,6 +11,7 @@ import {
 import CodeEnvironment from './screens/CodeEnvironment'
 import NavBar from './containers/NavBar/NavBar'
 import ProblemList from './components/ProblemList/ProblemList'
+import AboutScreen from './screens/AboutScreen/AboutScreen'
 
 class App extends React.Component {
   render() {
@@ -20,7 +21,12 @@ class App extends React.Component {
           <Switch>
             <Route exact={true} path="/">
               <NavBar/>
+              <h1 className='title'>Pick A Problem</h1>
               <ProblemList/>
+            </Route>
+            <Route exact={true} path="/about">
+              <NavBar/>
+              <AboutScreen/>
             </Route>
             <Route path="/problem/:id" component={CodeEnvironment} />
           </Switch>

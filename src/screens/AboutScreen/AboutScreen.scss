@@ -1,0 +1,29 @@
+.about--img {
+  transition: .3s;
+  border: 15px solid white;
+  border-radius: 20px;
+  box-shadow: 10px 10px 32px -18px rgba(0,0,0,0.75);
+
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: 10px 10px 81px -17px rgba(0,0,0,0.75);
+  }
+}
+
+.about--h1 {
+  font-family: 'Yellow Rabbit';
+  font-size: 150px;
+  font-weight: 700;
+  text-align: center;
+  margin: 50px 0;
+  color: white;
+}
+
+.about--p {
+  color: white;
+  font-size: 22px;
+}
+
+.about--content {
+  padding: 70px 0;
+}

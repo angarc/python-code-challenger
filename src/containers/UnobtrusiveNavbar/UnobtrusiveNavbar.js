@@ -16,7 +16,7 @@ class UnobtrusiveNavbar extends React.Component {
             <i class="fas fa-times"></i>
           </button>
            <Link className="UnobtrusiveNavbar__menu-link" to="/">Home</Link> 
-           <Link className="UnobtrusiveNavbar__menu-link" to="/">About</Link> 
+           <Link className="UnobtrusiveNavbar__menu-link" to="/About">About</Link> 
        </div>
       ) 
     } else {
