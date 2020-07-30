@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "195b4c0a5f5c53399cfca37d72b70ca6",
+    "revision": "ef6d75d5242feadc11c58d51e0dc3780",
     "url": "/python-code-challenger/index.html"
   },
   {
-    "revision": "42cc46b7406d85be5ecf",
+    "revision": "b60430715b9b1c95ce7b",
     "url": "/python-code-challenger/static/css/2.d09ab2fc.chunk.css"
   },
   {
-    "revision": "3e84f692261d37b0be8f",
+    "revision": "0a29f9a9860c9bfe8f88",
     "url": "/python-code-challenger/static/css/main.b47e0462.chunk.css"
   },
   {
-    "revision": "42cc46b7406d85be5ecf",
-    "url": "/python-code-challenger/static/js/2.b58f748d.chunk.js"
+    "revision": "b60430715b9b1c95ce7b",
+    "url": "/python-code-challenger/static/js/2.c49f11d9.chunk.js"
   },
   {
     "revision": "a398cfb19cd4fd6bd9d0522fe508fcdf",
-    "url": "/python-code-challenger/static/js/2.b58f748d.chunk.js.LICENSE.txt"
+    "url": "/python-code-challenger/static/js/2.c49f11d9.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "3e84f692261d37b0be8f",
-    "url": "/python-code-challenger/static/js/main.9a7b843c.chunk.js"
+    "revision": "0a29f9a9860c9bfe8f88",
+    "url": "/python-code-challenger/static/js/main.8657deb3.chunk.js"
   },
   {
     "revision": "a6f8dabd38c30306c95e",
