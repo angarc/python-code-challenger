@@ -33,6 +33,7 @@ class TerminalEmulator extends React.Component {
             code
           }
         }).then((response) => {
+          console.log(response.data)
           terminal.pushToStdout(response.data.output)
         }).catch((error) => {
           console.log(error)
@@ -50,6 +51,7 @@ class TerminalEmulator extends React.Component {
         ref={this.terminal}
         welcomeMessage={'-- To test your code, you can run it here in the terminal. The name of python file is the name of the challenge.'}
         promptLabel={'me@obcode:~$'}
+        noNewlineParsing={false}
       />
     )
   }
